@@ -1,0 +1,78 @@
+=== [Wed Feb 25 14:44:54 KST 2026] Cluster Update Started ===
+[WARNING]: Found both group and host with same name: master
+
+PLAY [System Update and Sequential Reboot] *************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [master]
+
+TASK [Update apt cache] ********************************************************
+changed: [master]
+
+TASK [Upgrade packages] ********************************************************
+ok: [master]
+
+TASK [Check if reboot is required] *********************************************
+ok: [master]
+
+TASK [Reboot if required] ******************************************************
+skipping: [master]
+
+TASK [Wait for k3s service to be ready (master)] *******************************
+ok: [master]
+
+TASK [Wait for k3s-agent service to be ready (workers)] ************************
+skipping: [master]
+
+PLAY [System Update and Sequential Reboot] *************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [worker1]
+
+TASK [Update apt cache] ********************************************************
+changed: [worker1]
+
+TASK [Upgrade packages] ********************************************************
+ok: [worker1]
+
+TASK [Check if reboot is required] *********************************************
+ok: [worker1]
+
+TASK [Reboot if required] ******************************************************
+skipping: [worker1]
+
+TASK [Wait for k3s service to be ready (master)] *******************************
+skipping: [worker1]
+
+TASK [Wait for k3s-agent service to be ready (workers)] ************************
+ok: [worker1]
+
+PLAY [System Update and Sequential Reboot] *************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [worker2]
+
+TASK [Update apt cache] ********************************************************
+changed: [worker2]
+
+TASK [Upgrade packages] ********************************************************
+ok: [worker2]
+
+TASK [Check if reboot is required] *********************************************
+ok: [worker2]
+
+TASK [Reboot if required] ******************************************************
+skipping: [worker2]
+
+TASK [Wait for k3s service to be ready (master)] *******************************
+skipping: [worker2]
+
+TASK [Wait for k3s-agent service to be ready (workers)] ************************
+ok: [worker2]
+
+PLAY RECAP *********************************************************************
+master                     : ok=5    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+worker1                    : ok=5    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+worker2                    : ok=5    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+
+=== [Wed Feb 25 14:46:06 KST 2026] Cluster Update Completed ===
